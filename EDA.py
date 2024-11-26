@@ -4,12 +4,15 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 def app():
-    st.title("Exploratory Data Analysis (EDA)")
+    st.title("📊 Exploratory Data Analysis (EDA)")
 
     uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
     
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
+
+        # Store Data to transfere it to other pages
+        st.session_state['uploaded_file'] = df
 
         st.write("### Dataset Preview")
         st.write(df.head())
@@ -47,5 +50,5 @@ def app():
 
 
 
-if __name__ == "__main__":
-    app()
+# if __name__ == "__main__":
+#     app()
